@@ -312,41 +312,41 @@ export default function Header({ onRequestCallback, onApplyNow }) {
           1. TOP UTILITY BAR (Very thin, dark navy, authentic info)
              Phone: +91 89040 58866 | Email: enquiry@race.reva.edu.in
          ======================================================== */}
-      <div className="w-full bg-[#061226] text-slate-300 border-b border-white/10 text-[11px] sm:text-[12px] py-1.5 z-40 relative box-border">
-        <div className="w-[92vw] lg:w-[94vw] max-w-[1450px] mx-auto px-2 sm:px-4 flex items-center justify-between box-border">
+      <div className="w-full bg-[#061226] text-slate-300 border-b border-white/10 text-[11px] sm:text-[12px] py-1.5 z-40 relative box-border overflow-hidden">
+        <div className="w-[92vw] lg:w-[94vw] max-w-[1450px] mx-auto px-2 sm:px-4 flex items-center justify-between box-border gap-2">
           
           {/* Left: Contact Info */}
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex items-center gap-3 sm:gap-6 shrink-0 min-w-0">
             <a 
               href="tel:+918904058866" 
-              className="flex items-center gap-1.5 text-slate-200 hover:text-white transition group"
+              className="flex items-center gap-1.5 text-slate-200 hover:text-white transition group whitespace-nowrap shrink-0"
             >
-              <Phone className="w-3.5 h-3.5 text-race-orange group-hover:scale-110 transition-transform" />
-              <span><strong className="text-white font-bold tracking-wide">+91 89040 58866</strong></span>
+              <Phone className="w-3.5 h-3.5 text-race-orange group-hover:scale-110 transition-transform shrink-0" />
+              <span className="text-[10px] xs:text-[11px] sm:text-[12px]"><strong className="text-white font-bold tracking-wide">+91 89040 58866</strong></span>
             </a>
 
             <a 
               href="mailto:enquiry@race.reva.edu.in" 
-              className="hidden sm:flex items-center gap-1.5 text-slate-300 hover:text-white transition group"
+              className="hidden md:flex items-center gap-1.5 text-slate-300 hover:text-white transition group whitespace-nowrap shrink-0"
             >
-              <Mail className="w-3.5 h-3.5 text-race-orange group-hover:scale-110 transition-transform" />
+              <Mail className="w-3.5 h-3.5 text-race-orange group-hover:scale-110 transition-transform shrink-0" />
               <span>enquiry@race.reva.edu.in</span>
             </a>
           </div>
 
           {/* Center Announcement */}
-          <div className="hidden lg:flex items-center gap-2 text-slate-300 font-medium">
-            <span className="w-2 h-2 rounded-full bg-race-orange animate-pulse"></span>
-            <span>Admission Open 2025-26 • REVA Academy for Corporate Excellence</span>
+          <div className="hidden lg:flex items-center gap-2 text-slate-300 font-medium truncate">
+            <span className="w-2 h-2 rounded-full bg-race-orange animate-pulse shrink-0"></span>
+            <span className="truncate">Admission Open 2025-26 • REVA Academy for Corporate Excellence</span>
           </div>
 
           {/* Right Links */}
-          <div className="flex items-center gap-3 sm:gap-4 text-slate-300 font-medium text-[11px] sm:text-[12px]">
+          <div className="flex items-center gap-2 sm:gap-4 text-slate-300 font-medium text-[10px] sm:text-[12px] shrink-0">
             <a 
               href="https://race.reva.edu.in/connect-with-race-reva-university/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hover:text-white text-slate-300 transition hidden sm:inline-flex items-center gap-1"
+              className="hover:text-white text-slate-300 transition hidden sm:inline-flex items-center gap-1 whitespace-nowrap"
             >
               <span>Book Your Free Consultation</span>
               <ExternalLink className="w-3 h-3 text-slate-400" />
@@ -354,12 +354,14 @@ export default function Header({ onRequestCallback, onApplyNow }) {
 
             <span className="text-white/20 hidden sm:inline">|</span>
 
+            {/* Admission Open badge - responsive and compact */}
             <button
               type="button"
               onClick={onRequestCallback}
-              className="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold transition text-[10px] sm:text-[11px] uppercase tracking-wider"
+              className="px-2 sm:px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold transition text-[9px] xs:text-[10px] sm:text-[11px] uppercase tracking-wider whitespace-nowrap shrink-0"
             >
-              Admission Open 2025-26
+              <span className="hidden xs:inline">Admission Open 2025-26</span>
+              <span className="xs:hidden">Admissions Open</span>
             </button>
           </div>
 
@@ -373,11 +375,11 @@ export default function Header({ onRequestCallback, onApplyNow }) {
              height 72–76px (h-[74px]), rounded corners 16px,
              dark navy background (#0B1B3D), soft shadow.
          ======================================================== */}
-      <header className="absolute top-[36px] left-0 right-0 z-50 w-full pt-4 sm:pt-6 pointer-events-none box-border">
+      <header className="absolute top-[36px] left-0 right-0 z-50 w-full pt-3 sm:pt-4 xl:pt-6 pointer-events-none box-border">
         <div className="w-[92vw] lg:w-[94vw] max-w-[1450px] mx-auto pointer-events-auto box-border">
           
           <nav 
-            className={`w-full box-border h-[74px] min-h-[72px] max-h-[76px] bg-[#0B1B3D] text-white rounded-[16px] pl-5 sm:pl-6 xl:pl-7 pr-6 sm:pr-7 xl:pr-8 border border-white/10 shadow-xl shadow-slate-950/30 backdrop-blur-md transition-all duration-300 flex items-center justify-between ${
+            className={`w-full box-border h-[64px] sm:h-[70px] xl:h-[74px] min-h-[62px] xl:min-h-[72px] xl:max-h-[76px] bg-[#0B1B3D] text-white rounded-[14px] sm:rounded-[16px] px-3.5 sm:px-5 xl:pl-7 xl:pr-8 border border-white/10 shadow-xl shadow-slate-950/30 backdrop-blur-md transition-all duration-300 flex items-center justify-between ${
               isScrolled ? 'bg-[#0B1B3D]/95 shadow-2xl shadow-slate-950/50 border-white/15' : ''
             }`}
             aria-label="RACE REVA University Navigation"
@@ -387,30 +389,30 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                 LEFT: LOGO / BRAND AREA
                 Structure: [ REVA UNIVERSITY ] | [ RACE LOGO ]
                 Placed directly on navy background (NO white box).
-                Compact enough to leave maximum space for navigation.
+                Compact & responsive to leave maximum space for navigation.
                 Followed by a thin vertical divider after brand area.
                ---------------------------------------------------- */}
-            <div className="shrink-0 flex items-center">
+            <div className="shrink-0 flex items-center min-w-0">
               <a 
                 href="https://race.reva.edu.in" 
-                className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
+                className="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3 group shrink-0"
                 title="RACE REVA University"
               >
-                {/* Original REVA University Logo (approx 105px wide, 32px height) */}
+                {/* Original REVA University Logo */}
                 <img 
                   src={revaLogo} 
                   alt="REVA University" 
-                  className="w-[98px] sm:w-[105px] h-[32px] sm:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
+                  className="w-[74px] sm:w-[90px] md:w-[98px] xl:w-[105px] h-[24px] sm:h-[30px] md:h-[32px] xl:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
                 />
                 
                 {/* Thin Vertical Divider between REVA and RACE */}
-                <div className="h-5 sm:h-5.5 w-px bg-white/20 shrink-0"></div>
+                <div className="h-4 sm:h-5 xl:h-5.5 w-px bg-white/20 shrink-0"></div>
 
-                {/* Original RACE Logo (approx 92px wide, 32px height) */}
+                {/* Original RACE Logo */}
                 <img 
                   src={raceLogo} 
                   alt="RACE - REVA Academy for Corporate Excellence" 
-                  className="w-[88px] sm:w-[94px] h-[32px] sm:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
+                  className="w-[66px] sm:w-[80px] md:w-[88px] xl:w-[94px] h-[24px] sm:h-[30px] md:h-[32px] xl:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
                 />
               </a>
             </div>
@@ -499,12 +501,12 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                   onMouseEnter={() => setActiveDropdown('getCertified')}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <div className="w-96 bg-[#0B1E45] border border-white/20 rounded-2xl shadow-2xl p-4 backdrop-blur-xl divide-y divide-white/10">
+                  <div className="w-[450px] min-w-[420px] max-w-[min(480px,90vw)] bg-[#0B1E45] border border-white/20 rounded-2xl shadow-2xl p-4 backdrop-blur-xl divide-y divide-white/10 overflow-x-hidden">
                     <div className="px-3 py-1 flex items-center justify-between">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-slate-300">
                         Executive Certifications
                       </span>
-                      <span className="text-[10px] text-race-orange font-bold uppercase bg-white/10 px-2 py-0.5 rounded">
+                      <span className="text-[10px] text-race-orange font-bold uppercase bg-white/10 px-2 py-0.5 rounded shrink-0">
                         Industry Aligned
                       </span>
                     </div>
@@ -517,15 +519,15 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                           onClick={(e) => handleNavClick(e, cert.localAnchor, cert.href)}
                           className="block px-3.5 py-2.5 rounded-xl hover:bg-white/10 transition group"
                         >
-                          <div className="flex items-center justify-between">
-                            <span className="text-[13px] font-bold text-white group-hover:text-race-orange transition-colors">
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="text-[13px] font-bold text-white group-hover:text-race-orange transition-colors whitespace-normal break-words leading-snug flex-1">
                               {cert.name}
                             </span>
-                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-white/10 text-amber-300">
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-white/10 text-amber-300 shrink-0 whitespace-nowrap mt-0.5">
                               {cert.badge}
                             </span>
                           </div>
-                          <p className="text-[11px] text-slate-300 mt-0.5 line-clamp-1 leading-snug">
+                          <p className="text-[11px] text-slate-300 mt-1 line-clamp-1 leading-snug whitespace-normal break-words">
                             {cert.desc}
                           </p>
                         </a>
@@ -707,25 +709,25 @@ export default function Header({ onRequestCallback, onApplyNow }) {
 
             {/* ----------------------------------------------------
                 MOBILE / TABLET (< 1280px):
-                Show: [REVA + RACE LOGOS]                         [MENU]
-                Hide desktop navigation.
+                Structure: [ Search ] [ Menu ]
+                Responsive, compact, fully contained within navbar.
                ---------------------------------------------------- */}
-            <div className="xl:hidden flex items-center gap-2 sm:gap-3">
+            <div className="xl:hidden flex items-center gap-1.5 sm:gap-2.5 shrink-0">
               {/* Search Icon */}
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="p-2 text-white hover:text-race-orange transition shrink-0"
+                className="w-8.5 h-8.5 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition shrink-0"
                 aria-label="Search"
               >
-                <Search className="w-5 h-5" />
+                <Search className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-white" />
               </button>
 
-              {/* Tablet Apply Now */}
+              {/* Tablet Apply Now (Hidden on mobile < 768px so navbar remains clean) */}
               <button
                 type="button"
                 onClick={onApplyNow}
-                className="hidden sm:inline-flex items-center justify-center gap-1 px-4 py-2 rounded-full bg-[#F37021] hover:bg-[#E05F10] text-slate-950 font-extrabold text-xs shadow-md shadow-orange-500/20 shrink-0"
+                className="hidden md:inline-flex items-center justify-center gap-1 px-3.5 py-1.5 rounded-full bg-[#F37021] hover:bg-[#E05F10] text-slate-950 font-extrabold text-xs shadow-md shadow-orange-500/20 shrink-0"
               >
                 <span>Apply Now</span>
                 <ArrowRight className="w-3.5 h-3.5 text-slate-950 font-bold" />
@@ -735,10 +737,10 @@ export default function Header({ onRequestCallback, onApplyNow }) {
               <button
                 type="button"
                 onClick={() => setMobileDrawerOpen(true)}
-                className="p-2 text-white hover:text-race-orange rounded-xl focus:outline-none focus:ring-2 focus:ring-white/25 transition bg-white/5 shrink-0"
+                className="w-8.5 h-8.5 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition bg-white/5 shrink-0 focus:outline-none focus:ring-2 focus:ring-white/25"
                 aria-label="Open Navigation Menu"
               >
-                <Menu className="w-6 h-6" />
+                <Menu className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-white" />
               </button>
             </div>
 
