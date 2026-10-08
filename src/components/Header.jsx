@@ -200,7 +200,7 @@ function NavDropdown({ label, isOpen, onMouseEnter, onMouseLeave, children }) {
     >
       <button
         type="button"
-        className={`flex items-center gap-1 px-2 xl:px-2.5 py-1.5 rounded-lg transition-colors font-medium text-[13.5px] xl:text-[14px] whitespace-nowrap group ${
+        className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 rounded-lg transition-colors font-medium text-[13px] 2xl:text-[14px] whitespace-nowrap group ${
           isOpen ? 'text-race-orange bg-white/10' : 'text-white hover:text-race-orange hover:bg-white/5'
         }`}
         aria-expanded={isOpen}
@@ -230,7 +230,7 @@ function NavDirectLink({ label, href, anchor, onNavClick }) {
     <a
       href={href}
       onClick={(e) => onNavClick(e, anchor, href)}
-      className="px-2 xl:px-2.5 py-1.5 rounded-lg text-white hover:text-race-orange hover:bg-white/5 transition-colors font-medium text-[13.5px] xl:text-[14px] whitespace-nowrap"
+      className="px-1.5 xl:px-2 2xl:px-2.5 py-1.5 rounded-lg text-white hover:text-race-orange hover:bg-white/5 transition-colors font-medium text-[13px] 2xl:text-[14px] whitespace-nowrap"
     >
       {label}
     </a>
@@ -375,11 +375,11 @@ export default function Header({ onRequestCallback, onApplyNow }) {
              height 72–76px (h-[74px]), rounded corners 16px,
              dark navy background (#0B1B3D), soft shadow.
          ======================================================== */}
-      <header className="absolute top-[36px] left-0 right-0 z-50 w-full pt-3 sm:pt-4 xl:pt-6 pointer-events-none box-border">
+      <header className="absolute top-[32px] sm:top-[34px] left-0 right-0 z-50 w-full pt-2.5 sm:pt-4 xl:pt-5 pointer-events-none box-border">
         <div className="w-[92vw] lg:w-[94vw] max-w-[1450px] mx-auto pointer-events-auto box-border">
           
           <nav 
-            className={`w-full box-border h-[64px] sm:h-[70px] xl:h-[74px] min-h-[62px] xl:min-h-[72px] xl:max-h-[76px] bg-[#0B1B3D] text-white rounded-[14px] sm:rounded-[16px] px-3.5 sm:px-5 xl:pl-7 xl:pr-8 border border-white/10 shadow-xl shadow-slate-950/30 backdrop-blur-md transition-all duration-300 flex items-center justify-between ${
+            className={`w-full box-border h-[62px] sm:h-[70px] xl:h-[74px] min-h-[60px] xl:min-h-[72px] xl:max-h-[76px] bg-[#0B1B3D] text-white rounded-[14px] sm:rounded-[16px] px-3 sm:px-5 xl:px-4 2xl:px-7 border border-white/10 shadow-xl shadow-slate-950/30 backdrop-blur-md transition-all duration-300 flex items-center justify-between ${
               isScrolled ? 'bg-[#0B1B3D]/95 shadow-2xl shadow-slate-950/50 border-white/15' : ''
             }`}
             aria-label="RACE REVA University Navigation"
@@ -395,30 +395,30 @@ export default function Header({ onRequestCallback, onApplyNow }) {
             <div className="shrink-0 flex items-center min-w-0">
               <a 
                 href="https://race.reva.edu.in" 
-                className="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3 group shrink-0"
+                className="flex items-center gap-1.5 sm:gap-2.5 xl:gap-2 2xl:gap-3 group shrink-0"
                 title="RACE REVA University"
               >
                 {/* Original REVA University Logo */}
                 <img 
                   src={revaLogo} 
                   alt="REVA University" 
-                  className="w-[74px] sm:w-[90px] md:w-[98px] xl:w-[105px] h-[24px] sm:h-[30px] md:h-[32px] xl:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
+                  className="w-[70px] xs:w-[78px] sm:w-[90px] md:w-[96px] xl:w-[94px] 2xl:w-[105px] h-[22px] xs:h-[24px] sm:h-[30px] md:h-[32px] xl:h-[32px] 2xl:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
                 />
                 
                 {/* Thin Vertical Divider between REVA and RACE */}
-                <div className="h-4 sm:h-5 xl:h-5.5 w-px bg-white/20 shrink-0"></div>
+                <div className="h-4 sm:h-5 xl:h-5 w-px bg-white/20 shrink-0"></div>
 
                 {/* Original RACE Logo */}
                 <img 
                   src={raceLogo} 
                   alt="RACE - REVA Academy for Corporate Excellence" 
-                  className="w-[66px] sm:w-[80px] md:w-[88px] xl:w-[94px] h-[24px] sm:h-[30px] md:h-[32px] xl:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
+                  className="w-[62px] xs:w-[70px] sm:w-[80px] md:w-[86px] xl:w-[84px] 2xl:w-[94px] h-[22px] xs:h-[24px] sm:h-[30px] md:h-[32px] xl:h-[32px] 2xl:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
                 />
               </a>
             </div>
 
             {/* Thin vertical divider after the brand area */}
-            <div className="hidden xl:block h-6 w-px bg-white/20 ml-3 mr-1 2xl:ml-4 2xl:mr-2 shrink-0"></div>
+            <div className="hidden xl:block h-6 w-px bg-white/20 ml-2.5 mr-1 2xl:ml-4 2xl:mr-2 shrink-0"></div>
 
             {/* ----------------------------------------------------
                 CENTER: NAVIGATION SPACING
@@ -435,8 +435,8 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                 7. About RACE
                 8. Contact Us
                ---------------------------------------------------- */}
-            <div className="hidden xl:flex items-center justify-center flex-1 min-w-0 mx-1 2xl:mx-2">
-              <div className="flex items-center gap-1 xl:gap-1.5 2xl:gap-3 text-[13.5px] 2xl:text-[14px] font-medium text-white whitespace-nowrap">
+            <div className="hidden xl:flex items-center justify-center flex-1 min-w-0 mx-0.5 2xl:mx-2">
+              <div className="flex items-center gap-0.5 xl:gap-1 2xl:gap-2.5 text-[13px] 2xl:text-[14px] font-medium text-white whitespace-nowrap">
                 
                 {/* 1. PG Programs ▼ */}
                 <NavDropdown
@@ -625,6 +625,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                   </div>
                 </NavDropdown>
 
+
                 {/* 6. Mentors */}
                 <NavDirectLink
                   label="Mentors"
@@ -662,13 +663,13 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                 - right padding inside navbar around 22–28px
                 - Never allow button to overflow
                ---------------------------------------------------- */}
-            <div className="hidden xl:flex items-center gap-2 xl:gap-2.5 2xl:gap-3 shrink-0 ml-auto xl:ml-0">
+            <div className="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-3 shrink-0 ml-auto xl:ml-0">
               
               {/* Search icon */}
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="w-9 h-9 rounded-full flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition shrink-0"
+                className="w-8.5 h-8.5 2xl:w-9 2xl:h-9 rounded-full flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition shrink-0"
                 aria-label="Search"
                 title="Search Programs & Certifications"
               >
@@ -682,27 +683,27 @@ export default function Header({ onRequestCallback, onApplyNow }) {
               <button
                 type="button"
                 onClick={() => setDesktopDrawerOpen(true)}
-                className="w-9 h-9 rounded-full flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition shrink-0"
+                className="w-8.5 h-8.5 2xl:w-9 2xl:h-9 rounded-full flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition shrink-0"
                 aria-label="Menu Directory"
                 title="Open Directory Menu"
               >
-                <Menu className="w-4.5 h-4.5 text-white" />
+                <Menu className="w-4 h-4 2xl:w-4.5 2xl:h-4.5 text-white" />
               </button>
 
               {/* Apply Now → button
                   - Orange rounded/pill button
-                  - 125–135px wide (w-[130px])
-                  - 44–48px high (h-[46px])
+                  - Laptop (1280-1440px): 116px wide, 42px high
+                  - Desktop (1440px+): 130px wide, 46px high
                   - Fully visible, shrink-0
                   - Text: Apply Now →
               */}
               <button
                 type="button"
                 onClick={onApplyNow}
-                className="w-[128px] 2xl:w-[132px] h-[46px] rounded-full bg-[#F37021] hover:bg-[#E05F10] text-slate-950 hover:text-black font-extrabold text-[13.5px] tracking-wide shadow-md shadow-orange-500/20 transition-all duration-200 flex items-center justify-center gap-1.5 shrink-0 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="w-[116px] 2xl:w-[130px] h-[42px] 2xl:h-[46px] rounded-full bg-[#F37021] hover:bg-[#E05F10] text-slate-950 hover:text-black font-extrabold text-[12.5px] 2xl:text-[13.5px] tracking-wide shadow-md shadow-orange-500/20 transition-all duration-200 flex items-center justify-center gap-1.5 shrink-0 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>Apply Now</span>
-                <ArrowRight className="w-4 h-4 text-slate-950 font-bold" />
+                <ArrowRight className="w-3.5 h-3.5 2xl:w-4 2xl:h-4 text-slate-950 font-bold" />
               </button>
 
             </div>
@@ -717,10 +718,10 @@ export default function Header({ onRequestCallback, onApplyNow }) {
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="w-8.5 h-8.5 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition shrink-0"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition shrink-0"
                 aria-label="Search"
               >
-                <Search className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-white" />
+                <Search className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </button>
 
               {/* Tablet Apply Now (Hidden on mobile < 768px so navbar remains clean) */}
@@ -737,10 +738,10 @@ export default function Header({ onRequestCallback, onApplyNow }) {
               <button
                 type="button"
                 onClick={() => setMobileDrawerOpen(true)}
-                className="w-8.5 h-8.5 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition bg-white/5 shrink-0 focus:outline-none focus:ring-2 focus:ring-white/25"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition bg-white/5 shrink-0 focus:outline-none focus:ring-2 focus:ring-white/25"
                 aria-label="Open Navigation Menu"
               >
-                <Menu className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-white" />
+                <Menu className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-white" />
               </button>
             </div>
 
@@ -1028,7 +1029,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
          ======================================================== */}
       {mobileDrawerOpen && (
         <div 
-          className="fixed inset-0 z-50 flex justify-end bg-slate-950/80 backdrop-blur-sm lg:hidden animate-fade-in"
+          className="fixed inset-0 z-50 flex justify-end bg-slate-950/80 backdrop-blur-sm xl:hidden animate-fade-in"
           onClick={() => setMobileDrawerOpen(false)}
         >
           <div 
