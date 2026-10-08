@@ -10,7 +10,40 @@
 
   body {
     background-color: #FFFFFF;
-    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --topbar-height: 36px;
+  }
+  @media (max-width: 640px) {
+    :root {
+      --topbar-height: 34px;
+    }
+  }
+
+  /* Sticky top utility bar */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    overflow: visible;
+  }
+
+  /* Sticky floating navbar positioned directly below topbar */
+  .navbar {
+    position: sticky;
+    top: 36px;
+    top: var(--topbar-height, 36px);
+    z-index: 9999;
+    overflow: visible;
+  }
+
+  @media (max-width: 640px) {
+    .navbar {
+      top: 34px;
+    }
   }
 
   /* Custom scrollbar */

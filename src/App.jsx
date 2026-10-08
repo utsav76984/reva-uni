@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Programs from './components/Programs';
 import CallbackModal from './components/CallbackModal';
 
 export default function App() {
@@ -17,11 +18,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100/70 text-slate-900 font-sans antialiased selection:bg-race-orange/20 selection:text-race-orange-dark flex flex-col">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans antialiased selection:bg-race-orange/20 selection:text-race-orange-dark">
       
       {/* ========================================================
           1. NAVBAR / HEADER (Floating Dark Navy over the Hero)
-             Finalized per requirements with exact authoritative menu
+             Approved per requirements with exact authoritative menu
          ======================================================== */}
       <Header
         onRequestCallback={() => handleOpenCallback('General Inquiry')}
@@ -38,23 +39,24 @@ export default function App() {
       />
 
       {/* ========================================================
-          3. MINIMAL ANCHOR PLACEHOLDERS FOR NAVBAR VERIFICATION
-             (No extra sections created per prompt instructions)
+          3. PROGRAMS SECTION (Immediately after Hero)
+             6 Premium Program Cards with authentic RACE content
          ======================================================== */}
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-16 w-full">
-        
-        {/* Scroll Anchor Placeholders matching the exact 8 live menu items */}
-        <div className="space-y-12 max-w-4xl mx-auto">
-          
-          <div id="pg-programs" className="scroll-mt-32 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Anchor Target</span>
-            <h3 className="text-lg font-bold text-slate-800 mt-1">#pg-programs (PG Programs)</h3>
-            <p className="text-xs text-slate-500 mt-1">
-              Dropdown: Business Analytics, Artificial Intelligence, Cybersecurity, Cloud Architecture and Security
-            </p>
-          </div>
+      <Programs
+        onApplyNow={(progName) => handleApplyNow(progName || 'Program Application')}
+        onRequestCallback={(progName) => handleOpenCallback(progName || 'Program Callback')}
+      />
 
-          <div id="get-certified" className="scroll-mt-32 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
+      {/* ========================================================
+          4. MINIMAL ANCHOR PLACEHOLDERS FOR REMAINING NAVBAR ITEMS
+             (Kept for anchor scroll verification per requirements)
+         ======================================================== */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 w-full">
+        
+        {/* Scroll Anchor Placeholders for subsequent sections */}
+        <div className="space-y-12 max-w-4xl mx-auto">
+
+          <div id="get-certified" className="scroll-mt-36 lg:scroll-mt-44 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Anchor Target</span>
             <h3 className="text-lg font-bold text-slate-800 mt-1">#get-certified (Get Certified)</h3>
             <p className="text-xs text-slate-500 mt-1">
@@ -62,7 +64,7 @@ export default function App() {
             </p>
           </div>
 
-          <div id="race-labs" className="scroll-mt-32 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
+          <div id="race-labs" className="scroll-mt-36 lg:scroll-mt-44 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Anchor Target</span>
             <h3 className="text-lg font-bold text-slate-800 mt-1">#race-labs (RACE Labs)</h3>
             <p className="text-xs text-slate-500 mt-1">
@@ -70,12 +72,12 @@ export default function App() {
             </p>
           </div>
 
-          <div id="consulting" className="scroll-mt-32 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
+          <div id="consulting" className="scroll-mt-36 lg:scroll-mt-44 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Anchor Target</span>
             <h3 className="text-lg font-bold text-slate-800 mt-1">#consulting (Consulting)</h3>
           </div>
 
-          <div id="events" className="scroll-mt-32 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
+          <div id="events" className="scroll-mt-36 lg:scroll-mt-44 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Anchor Target</span>
             <h3 className="text-lg font-bold text-slate-800 mt-1">#events (Events)</h3>
             <p className="text-xs text-slate-500 mt-1">
@@ -83,17 +85,17 @@ export default function App() {
             </p>
           </div>
 
-          <div id="mentors" className="scroll-mt-32 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
+          <div id="mentors" className="scroll-mt-36 lg:scroll-mt-44 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Anchor Target</span>
             <h3 className="text-lg font-bold text-slate-800 mt-1">#mentors (Mentors)</h3>
           </div>
 
-          <div id="about-race" className="scroll-mt-32 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
+          <div id="about-race" className="scroll-mt-36 lg:scroll-mt-44 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Anchor Target</span>
             <h3 className="text-lg font-bold text-slate-800 mt-1">#about-race (About RACE)</h3>
           </div>
 
-          <div id="contact-us" className="scroll-mt-32 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
+          <div id="contact-us" className="scroll-mt-36 lg:scroll-mt-44 p-8 bg-white rounded-2xl border border-dashed border-slate-300 text-center shadow-sm">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Anchor Target</span>
             <h3 className="text-lg font-bold text-slate-800 mt-1">#contact-us (Contact Us)</h3>
           </div>

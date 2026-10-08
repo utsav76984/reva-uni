@@ -199,7 +199,7 @@ export default function Hero({ onApplyNow, onRequestCallback }) {
           Occupies full hero height, starting beneath/behind floating navbar.
          ======================================================== */}
       <section
-        className="relative w-full min-h-[720px] xs:min-h-[760px] sm:min-h-[820px] lg:min-h-[880px] xl:min-h-[920px] flex flex-col justify-between overflow-hidden bg-[#061226] pt-[118px] xs:pt-[128px] sm:pt-[140px] lg:pt-[155px] xl:pt-[170px] pb-6 sm:pb-8 lg:pb-10 focus:outline-none"
+        className="relative w-full min-h-[660px] xs:min-h-[700px] sm:min-h-[760px] lg:min-h-[820px] xl:min-h-[860px] flex flex-col justify-between overflow-hidden bg-[#061226] pt-6 xs:pt-8 sm:pt-10 lg:pt-12 xl:pt-14 pb-8 sm:pb-10 lg:pb-12 focus:outline-none"
         aria-label="REVA University & RACE Hero Carousel"
         role="region"
         aria-roledescription="carousel"

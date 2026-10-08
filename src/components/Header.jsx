@@ -200,7 +200,7 @@ function NavDropdown({ label, isOpen, onMouseEnter, onMouseLeave, children }) {
     >
       <button
         type="button"
-        className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 2xl:px-2.5 py-1.5 rounded-lg transition-colors font-medium text-[13px] 2xl:text-[14px] whitespace-nowrap group ${
+        className={`flex items-center gap-0.5 xl:gap-0.5 2xl:gap-1 px-1 xl:px-1.5 2xl:px-2.5 py-1.5 rounded-lg transition-colors font-medium text-[12.5px] 2xl:text-[14px] whitespace-nowrap group ${
           isOpen ? 'text-race-orange bg-white/10' : 'text-white hover:text-race-orange hover:bg-white/5'
         }`}
         aria-expanded={isOpen}
@@ -214,7 +214,7 @@ function NavDropdown({ label, isOpen, onMouseEnter, onMouseLeave, children }) {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 pt-2.5 z-50 animate-fade-in">
+        <div className="absolute top-full left-0 pt-2.5 z-[9999] animate-fade-in">
           {children}
         </div>
       )}
@@ -230,7 +230,7 @@ function NavDirectLink({ label, href, anchor, onNavClick }) {
     <a
       href={href}
       onClick={(e) => onNavClick(e, anchor, href)}
-      className="px-1.5 xl:px-2 2xl:px-2.5 py-1.5 rounded-lg text-white hover:text-race-orange hover:bg-white/5 transition-colors font-medium text-[13px] 2xl:text-[14px] whitespace-nowrap"
+      className="px-1 xl:px-1.5 2xl:px-2.5 py-1.5 rounded-lg text-white hover:text-race-orange hover:bg-white/5 transition-colors font-medium text-[12.5px] 2xl:text-[14px] whitespace-nowrap"
     >
       {label}
     </a>
@@ -280,7 +280,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
     };
   }, [mobileDrawerOpen, desktopDrawerOpen, searchOpen]);
 
-  // Smooth scroll handler
+  // Smooth scroll handler with sticky navbar offset clearance
   const handleNavClick = (e, localAnchor, externalHref) => {
     setMobileDrawerOpen(false);
     setDesktopDrawerOpen(false);
@@ -288,7 +288,15 @@ export default function Header({ onRequestCallback, onApplyNow }) {
 
     if (localAnchor && document.querySelector(localAnchor)) {
       e.preventDefault();
-      document.querySelector(localAnchor).scrollIntoView({ behavior: 'smooth' });
+      const targetEl = document.querySelector(localAnchor);
+      const navOffset = 135; // Sticky topbar (36px) + navbar (74px) + clearance
+      const elementPosition = targetEl.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -309,10 +317,19 @@ export default function Header({ onRequestCallback, onApplyNow }) {
   return (
     <>
       {/* ========================================================
-          1. TOP UTILITY BAR (Very thin, dark navy, authentic info)
+          1. TOP UTILITY BAR (Sticky at top, authentic dark navy info)
              Phone: +91 89040 58866 | Email: enquiry@race.reva.edu.in
          ======================================================== */}
-      <div className="w-full bg-[#061226] text-slate-300 border-b border-white/10 text-[11px] sm:text-[12px] py-1.5 z-40 relative box-border overflow-hidden">
+      <div 
+        id="topbar"
+        className="topbar sticky top-0 z-[10000] w-full bg-[#061226] text-slate-300 border-b border-white/10 text-[11px] sm:text-[12px] h-[34px] sm:h-[36px] flex items-center box-border overflow-visible"
+        style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 10000,
+          overflow: 'visible'
+        }}
+      >
         <div className="w-[92vw] lg:w-[94vw] max-w-[1450px] mx-auto px-2 sm:px-4 flex items-center justify-between box-border gap-2">
           
           {/* Left: Contact Info */}
@@ -358,7 +375,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
             <button
               type="button"
               onClick={onRequestCallback}
-              className="px-2 sm:px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold transition text-[9px] xs:text-[10px] sm:text-[11px] uppercase tracking-wider whitespace-nowrap shrink-0"
+              className="px-2 sm:px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold transition text-[9px] xs:text-[10px] sm:text-[11px] uppercase tracking-wider whitespace-nowrap shrink-0 cursor-pointer"
             >
               <span className="hidden xs:inline">Admission Open 2025-26</span>
               <span className="xs:hidden">Admissions Open</span>
@@ -370,18 +387,31 @@ export default function Header({ onRequestCallback, onApplyNow }) {
 
       {/* ========================================================
           2. FLOATING UNIVET-STYLE NAVBAR CONTAINER
-             Positioned over hero area, centered horizontally,
-             width 92–94% viewport, max-width 1450px,
-             height 72–76px (h-[74px]), rounded corners 16px,
-             dark navy background (#0B1B3D), soft shadow.
+             Positioned directly below topbar with minimal spacing.
+             Sticky positioning relative to topbar: top: topbar-height
+             Zero white gap: sits on authentic dark navy (#061226).
+             Width 92–94% viewport, max-width 1450px,
+             height 62px (mobile) to 74px (desktop), rounded corners 16px.
          ======================================================== */}
-      <header className="absolute top-[32px] sm:top-[34px] left-0 right-0 z-50 w-full pt-2.5 sm:pt-4 xl:pt-5 pointer-events-none box-border">
-        <div className="w-[92vw] lg:w-[94vw] max-w-[1450px] mx-auto pointer-events-auto box-border">
+      <header 
+        id="navbar"
+        className="navbar sticky top-[34px] sm:top-[36px] z-[9999] w-full pt-2 sm:pt-2.5 pb-2.5 sm:pb-3 pointer-events-none box-border overflow-visible bg-[#061226] transition-all duration-200 border-b border-white/5"
+        style={{
+          position: 'sticky',
+          top: 'var(--topbar-height, 36px)',
+          zIndex: 9999,
+          overflow: 'visible'
+        }}
+      >
+        <div className="w-[92vw] lg:w-[94vw] max-w-[1450px] mx-auto pointer-events-auto box-border overflow-visible">
           
           <nav 
-            className={`w-full box-border h-[62px] sm:h-[70px] xl:h-[74px] min-h-[60px] xl:min-h-[72px] xl:max-h-[76px] bg-[#0B1B3D] text-white rounded-[14px] sm:rounded-[16px] px-3 sm:px-5 xl:px-4 2xl:px-7 border border-white/10 shadow-xl shadow-slate-950/30 backdrop-blur-md transition-all duration-300 flex items-center justify-between ${
+            className={`w-full box-border h-[62px] sm:h-[70px] xl:h-[74px] min-h-[60px] xl:min-h-[72px] xl:max-h-[76px] bg-[#0B1B3D] text-white rounded-[14px] sm:rounded-[16px] px-3 sm:px-4 xl:px-3.5 2xl:px-7 border border-white/10 shadow-xl shadow-slate-950/30 backdrop-blur-md transition-all duration-300 flex items-center justify-between overflow-visible ${
               isScrolled ? 'bg-[#0B1B3D]/95 shadow-2xl shadow-slate-950/50 border-white/15' : ''
             }`}
+            style={{
+              overflow: 'visible'
+            }}
             aria-label="RACE REVA University Navigation"
           >
 
@@ -402,7 +432,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                 <img 
                   src={revaLogo} 
                   alt="REVA University" 
-                  className="w-[70px] xs:w-[78px] sm:w-[90px] md:w-[96px] xl:w-[94px] 2xl:w-[105px] h-[22px] xs:h-[24px] sm:h-[30px] md:h-[32px] xl:h-[32px] 2xl:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
+                  className="w-[70px] xs:w-[78px] sm:w-[90px] md:w-[96px] xl:w-[88px] 2xl:w-[105px] h-[22px] xs:h-[24px] sm:h-[30px] md:h-[32px] xl:h-[30px] 2xl:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
                 />
                 
                 {/* Thin Vertical Divider between REVA and RACE */}
@@ -412,7 +442,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                 <img 
                   src={raceLogo} 
                   alt="RACE - REVA Academy for Corporate Excellence" 
-                  className="w-[62px] xs:w-[70px] sm:w-[80px] md:w-[86px] xl:w-[84px] 2xl:w-[94px] h-[22px] xs:h-[24px] sm:h-[30px] md:h-[32px] xl:h-[32px] 2xl:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
+                  className="w-[62px] xs:w-[70px] sm:w-[80px] md:w-[86px] xl:w-[78px] 2xl:w-[94px] h-[22px] xs:h-[24px] sm:h-[30px] md:h-[32px] xl:h-[30px] 2xl:h-[34px] object-contain shrink-0 transition-transform group-hover:scale-[1.02]"
                 />
               </a>
             </div>
@@ -436,7 +466,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                 8. Contact Us
                ---------------------------------------------------- */}
             <div className="hidden xl:flex items-center justify-center flex-1 min-w-0 mx-0.5 2xl:mx-2">
-              <div className="flex items-center gap-0.5 xl:gap-1 2xl:gap-2.5 text-[13px] 2xl:text-[14px] font-medium text-white whitespace-nowrap">
+              <div className="flex items-center gap-0.5 xl:gap-0.5 2xl:gap-2.5 text-[12.5px] 2xl:text-[14px] font-medium text-white whitespace-nowrap">
                 
                 {/* 1. PG Programs ▼ */}
                 <NavDropdown
@@ -445,7 +475,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                   onMouseEnter={() => setActiveDropdown('pgPrograms')}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <div className="w-[450px] min-w-[420px] max-w-[min(480px,90vw)] bg-[#0B1E45] border border-white/20 rounded-2xl shadow-2xl p-4 backdrop-blur-xl divide-y divide-white/10 overflow-x-hidden">
+                  <div className="w-[450px] min-w-[420px] max-w-[min(480px,90vw)] bg-[#0B1E45] border border-white/20 rounded-2xl shadow-2xl p-4 backdrop-blur-xl divide-y divide-white/10 overflow-visible break-words">
                     <div className="px-3 py-1 flex items-center justify-between">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-slate-300">
                         Degree Programs
@@ -501,7 +531,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                   onMouseEnter={() => setActiveDropdown('getCertified')}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <div className="w-[450px] min-w-[420px] max-w-[min(480px,90vw)] bg-[#0B1E45] border border-white/20 rounded-2xl shadow-2xl p-4 backdrop-blur-xl divide-y divide-white/10 overflow-x-hidden">
+                  <div className="w-[450px] min-w-[420px] max-w-[min(480px,90vw)] bg-[#0B1E45] border border-white/20 rounded-2xl shadow-2xl p-4 backdrop-blur-xl divide-y divide-white/10 overflow-visible break-words">
                     <div className="px-3 py-1 flex items-center justify-between">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-slate-300">
                         Executive Certifications
@@ -663,13 +693,13 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                 - right padding inside navbar around 22–28px
                 - Never allow button to overflow
                ---------------------------------------------------- */}
-            <div className="hidden xl:flex items-center gap-1.5 xl:gap-2 2xl:gap-3 shrink-0 ml-auto xl:ml-0">
+            <div className="hidden xl:flex items-center gap-1 xl:gap-1.5 2xl:gap-3 shrink-0 ml-auto xl:ml-0">
               
               {/* Search icon */}
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="w-8.5 h-8.5 2xl:w-9 2xl:h-9 rounded-full flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition shrink-0"
+                className="w-8 h-8 2xl:w-9 2xl:h-9 rounded-full flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition shrink-0"
                 aria-label="Search"
                 title="Search Programs & Certifications"
               >
@@ -683,7 +713,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
               <button
                 type="button"
                 onClick={() => setDesktopDrawerOpen(true)}
-                className="w-8.5 h-8.5 2xl:w-9 2xl:h-9 rounded-full flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition shrink-0"
+                className="w-8 h-8 2xl:w-9 2xl:h-9 rounded-full flex items-center justify-center text-white hover:text-race-orange hover:bg-white/10 transition shrink-0"
                 aria-label="Menu Directory"
                 title="Open Directory Menu"
               >
@@ -692,7 +722,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
 
               {/* Apply Now → button
                   - Orange rounded/pill button
-                  - Laptop (1280-1440px): 116px wide, 42px high
+                  - Laptop (1280-1440px): 110px wide, 40px high
                   - Desktop (1440px+): 130px wide, 46px high
                   - Fully visible, shrink-0
                   - Text: Apply Now →
@@ -700,7 +730,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
               <button
                 type="button"
                 onClick={onApplyNow}
-                className="w-[116px] 2xl:w-[130px] h-[42px] 2xl:h-[46px] rounded-full bg-[#F37021] hover:bg-[#E05F10] text-slate-950 hover:text-black font-extrabold text-[12.5px] 2xl:text-[13.5px] tracking-wide shadow-md shadow-orange-500/20 transition-all duration-200 flex items-center justify-center gap-1.5 shrink-0 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="w-[110px] 2xl:w-[130px] h-[40px] 2xl:h-[46px] rounded-full bg-[#F37021] hover:bg-[#E05F10] text-slate-950 hover:text-black font-extrabold text-[12px] 2xl:text-[13.5px] tracking-wide shadow-md shadow-orange-500/20 transition-all duration-200 flex items-center justify-center gap-1.5 shrink-0 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>Apply Now</span>
                 <ArrowRight className="w-3.5 h-3.5 2xl:w-4 2xl:h-4 text-slate-950 font-bold" />
@@ -755,7 +785,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
          ======================================================== */}
       {searchOpen && (
         <div 
-          className="fixed inset-0 z-50 flex items-start justify-center pt-20 sm:pt-24 px-4 bg-slate-950/80 backdrop-blur-md animate-fade-in"
+          className="fixed inset-0 z-[100] flex items-start justify-center pt-20 sm:pt-24 px-4 bg-slate-950/80 backdrop-blur-md animate-fade-in"
           onClick={() => setSearchOpen(false)}
         >
           <div 
@@ -826,7 +856,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
          ======================================================== */}
       {desktopDrawerOpen && (
         <div 
-          className="fixed inset-0 z-50 flex justify-end bg-slate-950/70 backdrop-blur-sm animate-fade-in"
+          className="fixed inset-0 z-[100] flex justify-end bg-slate-950/70 backdrop-blur-sm animate-fade-in"
           onClick={() => setDesktopDrawerOpen(false)}
         >
           <div 
@@ -1029,7 +1059,7 @@ export default function Header({ onRequestCallback, onApplyNow }) {
          ======================================================== */}
       {mobileDrawerOpen && (
         <div 
-          className="fixed inset-0 z-50 flex justify-end bg-slate-950/80 backdrop-blur-sm xl:hidden animate-fade-in"
+          className="fixed inset-0 z-[100] flex justify-end bg-slate-950/80 backdrop-blur-sm xl:hidden animate-fade-in"
           onClick={() => setMobileDrawerOpen(false)}
         >
           <div 
