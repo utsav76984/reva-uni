@@ -445,12 +445,12 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                   onMouseEnter={() => setActiveDropdown('pgPrograms')}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <div className="w-96 bg-[#0B1E45] border border-white/20 rounded-2xl shadow-2xl p-4 backdrop-blur-xl divide-y divide-white/10">
+                  <div className="w-[450px] min-w-[420px] max-w-[min(480px,90vw)] bg-[#0B1E45] border border-white/20 rounded-2xl shadow-2xl p-4 backdrop-blur-xl divide-y divide-white/10 overflow-x-hidden">
                     <div className="px-3 py-1 flex items-center justify-between">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-slate-300">
                         Degree Programs
                       </span>
-                      <span className="text-[10px] text-race-orange font-bold uppercase bg-white/10 px-2 py-0.5 rounded">
+                      <span className="text-[10px] text-race-orange font-bold uppercase bg-white/10 px-2 py-0.5 rounded shrink-0">
                         AICTE / UGC
                       </span>
                     </div>
@@ -463,13 +463,13 @@ export default function Header({ onRequestCallback, onApplyNow }) {
                           onClick={(e) => handleNavClick(e, prog.localAnchor, prog.href)}
                           className="block px-3.5 py-2.5 rounded-xl hover:bg-white/10 transition group"
                         >
-                          <div className="flex items-center justify-between">
-                            <span className="text-[13px] font-bold text-white group-hover:text-race-orange transition-colors">
+                          <div className="flex items-start justify-between">
+                            <span className="text-[13px] font-bold text-white group-hover:text-race-orange transition-colors whitespace-normal break-words leading-snug flex-1 pr-2">
                               {prog.name}
                             </span>
                           </div>
-                          <div className="flex items-center gap-2 mt-0.5">
-                            <span className="text-[10px] font-semibold text-amber-300">
+                          <div className="flex items-center gap-2 mt-1">
+                            <span className="text-[10px] font-semibold text-amber-300 shrink-0">
                               {prog.badge}
                             </span>
                             <span className="text-white/30 text-[10px]">•</span>
