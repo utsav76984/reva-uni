@@ -1,0 +1,233 @@
+export const alumniData = [
+  {
+    id: 'shravani-ponde',
+    name: 'Shravani Ponde',
+    program: 'MBA in Business Analytics, 2021',
+    beforeRole: 'Business Analyst',
+    afterRole: 'Senior Consultant',
+    company: 'PwC, USA',
+    image: 'https://race.reva.edu.in/wp-content/uploads/2022/12/Shravani-Ponde-146x146.png',
+    track: 'Analytics',
+    metric: 'Strategic Career Shift'
+  },
+  {
+    id: 'parimala-mudimela',
+    name: 'Parimala Mudimela',
+    program: 'MBA in Business Analytics, 2019',
+    beforeRole: 'Software Engineer',
+    afterRole: 'Senior Data Scientist',
+    company: 'Honeywell HTS',
+    image: 'https://race.reva.edu.in/wp-content/uploads/2022/11/Parimala-Mudimela-146x146.png',
+    track: 'Analytics',
+    metric: 'Engineer to Data Scientist'
+  },
+  {
+    id: 'santosh-shirol',
+    name: 'Santosh Shirol',
+    program: 'M.Tech in Artificial Intelligence, 2023',
+    beforeRole: 'Senior Developer L3',
+    afterRole: 'Senior Member of Technical Staff QA',
+    company: 'SAP Labs India Pvt. Ltd.',
+    image: 'https://race.reva.edu.in/wp-content/uploads/Santosh-Shirol-146x146.png',
+    track: 'AI',
+    metric: 'Promoted to MTS QA'
+  },
+  {
+    id: 'ashok-shetty',
+    name: 'Ashok Shetty',
+    program: 'MBA in Business Analytics, 2020',
+    beforeRole: 'Senior Analytics Specialist',
+    afterRole: 'Vice President Data Scientist',
+    company: 'Swiss Re',
+    image: 'https://race.reva.edu.in/wp-content/uploads/2022/11/Ashok-Shetty1-146x146.png',
+    track: 'Analytics',
+    metric: 'Promoted to Vice President'
+  },
+  {
+    id: 'kavitha-m',
+    name: 'Kavitha M',
+    program: 'PGDM in Business Analytics, 2018',
+    beforeRole: 'Banker',
+    afterRole: 'Vice President Data Governance',
+    company: 'Goldman Sachs, USA',
+    image: 'https://race.reva.edu.in/wp-content/uploads/2022/03/Kavitha-146x146.png',
+    track: 'Analytics',
+    metric: 'Banking to Global FinTech VP'
+  },
+  {
+    id: 'praveena-vallivel',
+    name: 'Praveena Vallivel',
+    program: 'M.Tech in Artificial Intelligence, 2023',
+    beforeRole: 'Design Lead',
+    afterRole: 'Director Data Science',
+    company: 'Ernst & Young',
+    image: 'https://race.reva.edu.in/wp-content/uploads/Praveena-Vallivel-146x146.png',
+    track: 'AI',
+    metric: 'Design Lead to Director'
+  },
+  {
+    id: 'somesh-sahu',
+    name: 'Somesh Sahu',
+    program: 'MBA in Business Analytics, 2021',
+    beforeRole: 'Project Manager',
+    afterRole: 'Associate Principal Product Engineering',
+    company: 'LTIMindtree',
+    image: 'https://race.reva.edu.in/wp-content/uploads/2020/11/Somesh_Sahu-1-146x146.png',
+    track: 'Analytics',
+    metric: 'Product Engineering Lead'
+  },
+  {
+    id: 'dinesh-ghanta',
+    name: 'Dinesh Ghanta',
+    program: 'MBA in Business Analytics, 2019',
+    beforeRole: 'Network Engineer',
+    afterRole: 'Senior Data Scientist',
+    company: 'Oracle',
+    image: 'https://race.reva.edu.in/wp-content/uploads/2022/11/Dinesh-Ghanta-146x146.png',
+    track: 'Analytics',
+    metric: 'Network to Data Scientist'
+  },
+  {
+    id: 'anshuman-dash',
+    name: 'Anshuman Dash',
+    program: 'MBA in Business Analytics, 2020',
+    beforeRole: 'Delivery Lead',
+    afterRole: 'Senior Director Delivery Head, IIoT & AI/ML',
+    company: 'Microland',
+    image: 'https://race.reva.edu.in/wp-content/uploads/2022/03/Anshuman-Dash-146x146.png',
+    track: 'Analytics',
+    metric: 'Promoted to Senior Director'
+  },
+  {
+    id: 'sabyasachi-sengupta',
+    name: 'Sabyasachi Sengupta',
+    program: 'M.Tech in Artificial Intelligence',
+    beforeRole: 'Associate Manager',
+    afterRole: 'Principal Senior Engineering Manager',
+    company: 'Krutrim',
+    image: 'https://race.reva.edu.in/wp-content/uploads/Sabyasachi-Sengupta-146x146.png',
+    track: 'AI',
+    metric: 'Principal Engineering Manager'
+  },
+  {
+    id: 'qazi-kaleem',
+    name: 'Qazi Kaleem',
+    program: 'M.Tech in Cybersecurity - 2020',
+    beforeRole: 'Security Specialist',
+    afterRole: 'Cybersecurity Engineer',
+    company: 'Amazon, Australia',
+    image: 'https://race.reva.edu.in/wp-content/uploads/2020/11/Qazi_Kaleem-146x146.png',
+    track: 'Cybersecurity',
+    metric: 'Global Amazon Transition'
+  },
+  {
+    id: 'rahul-dev',
+    name: 'Rahul Dev',
+    program: 'M.Tech in Cybersecurity - 2022',
+    beforeRole: 'Systems Engineer',
+    afterRole: 'DevSecOps Engineer',
+    company: 'JP Morgan',
+    image: 'https://race.reva.edu.in/wp-content/uploads/Rahul-Dev-146x146.png',
+    track: 'Cybersecurity',
+    metric: 'Banking DevSecOps'
+  },
+  {
+    id: 'lisa-biswas',
+    name: 'Lisa Biswas',
+    program: 'M.Sc. in Cybersecurity - 2022',
+    beforeRole: 'Associate Analyst',
+    afterRole: 'Information Security Engineer',
+    company: 'Commvault Systems Inc.',
+    image: 'https://race.reva.edu.in/wp-content/uploads/Lisa-Biswas-144x146.png',
+    track: 'Cybersecurity',
+    metric: 'InfoSec Engineer'
+  },
+  {
+    id: 'an-datta',
+    name: 'A.N. Datta',
+    program: 'M.Sc. in Cybersecurity - 2023',
+    beforeRole: 'Security Analyst',
+    afterRole: 'Information Security Analyst',
+    company: 'Tata Consultancy Services',
+    image: 'https://race.reva.edu.in/wp-content/uploads/AN-Datta-146x146.png',
+    track: 'Cybersecurity',
+    metric: 'TCS Security Core'
+  },
+  {
+    id: 'patnana-sayesu',
+    name: 'Patnana Sayesu',
+    program: 'M.Tech. in Cybersecurity - 2023',
+    beforeRole: 'Lead Engineer',
+    afterRole: 'Engineering Manager',
+    company: 'IDBI Bank',
+    image: 'https://race.reva.edu.in/wp-content/uploads/Patnana-Sayesu-146x146.png',
+    track: 'Cybersecurity',
+    metric: 'Banking Eng Manager'
+  },
+  {
+    id: 'varun-cp',
+    name: 'Varun C P',
+    program: 'M.Tech. in Cybersecurity - 2022',
+    beforeRole: 'Associate Manager',
+    afterRole: 'Manager - Cybersecurity Operations',
+    company: 'SLK Softwares',
+    image: 'https://race.reva.edu.in/wp-content/uploads/Varun-CP-146x146.png',
+    track: 'Cybersecurity',
+    metric: 'Security Operations Lead'
+  },
+  {
+    id: 'soumya-shrivastava',
+    name: 'Soumya Shrivastava',
+    program: 'M.Tech in Artificial Intelligence, 2023',
+    beforeRole: 'Junior Developer',
+    afterRole: 'Developer Associate',
+    company: 'MC Millan',
+    image: 'https://race.reva.edu.in/wp-content/uploads/Soumya-Shrivastava-146x146.png',
+    track: 'AI',
+    metric: 'Developer Associate'
+  },
+  {
+    id: 'shivpriya-v',
+    name: 'Shivpriya V',
+    program: 'M.Tech in Artificial Intelligence, 2023',
+    beforeRole: 'Software Developer',
+    afterRole: 'Specialist - Applied AI',
+    company: 'Philips',
+    image: 'https://race.reva.edu.in/wp-content/uploads/Shivpriya-V-146x146.png',
+    track: 'AI',
+    metric: 'Philips AI Specialist'
+  },
+  {
+    id: 'rajanna-k',
+    name: 'Rajanna K',
+    program: 'M.Tech in Artificial Intelligence, 2022',
+    beforeRole: 'Senior QA Engineer',
+    afterRole: 'Technical Lead Testing',
+    company: 'Qualcomm',
+    image: 'https://race.reva.edu.in/wp-content/uploads/Rajanna-K-146x146.png',
+    track: 'AI',
+    metric: 'Tech Lead Testing'
+  },
+  {
+    id: 'kathiresan-rs',
+    name: 'Kathiresan R S',
+    program: 'M.Tech in Artificial Intelligence, 2023',
+    beforeRole: 'Senior Software Engineer',
+    afterRole: 'Solution Architect',
+    company: 'Toshiba',
+    image: 'https://race.reva.edu.in/wp-content/uploads/Kathiresan-R-S-146x146.png',
+    track: 'AI',
+    metric: 'Solution Architect'
+  },
+  {
+    id: 'satish-sreenivasaiah',
+    name: 'Satish Sreenivasaiah',
+    program: 'M.Tech in Cybersecurity - 2020',
+    beforeRole: 'Principal Consultant',
+    afterRole: 'Head - Product Security',
+    company: 'Tata Consultancy Services',
+    image: 'https://race.reva.edu.in/wp-content/uploads/2022/03/Satish-Katepalli-Sreenivasaiah-146x146.png',
+    track: 'Cybersecurity',
+    metric: 'Head of Product Security'
+  }
+];
