@@ -1,9 +1,9 @@
-import imgBA from '../assets/BA_1_BG_1.png';
-import imgAI_MTech from '../assets/AI_BG1-1.png';
-import imgCS_MTech from '../assets/cs_BG1.png';
-import imgAI_MSc from '../assets/ai1_BG1.png';
-import imgCS_MSc from '../assets/cs1_BG11.png';
-import imgCloud from '../assets/cloud_BG1.png';
+import imgBA from '../assets/career-business-analytics.jpg';
+import imgAI_MTech from '../assets/career-ai-mtech.jpg';
+import imgCS_MTech from '../assets/career-cybersecurity-mtech.jpg';
+import imgAI_MSc from '../assets/career-ai-msc.jpg';
+import imgCS_MSc from '../assets/career-cybersecurity-msc.jpg';
+import imgCloud from '../assets/career-cloud-architecture.jpg';
 
 export const programCategories = [
   { id: 'all', label: 'All Programs', count: 6 },
